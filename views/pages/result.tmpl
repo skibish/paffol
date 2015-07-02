@@ -1,0 +1,16 @@
+{{ define "content" }}
+{{ template "magicbox" . }}
+
+{{ $length := len .password}}
+
+{{ if gt $length 60  }}
+<div class="alert alert-danger">Фраза слишком длинная. Вы такой пароль не запомните :)</div>
+{{ else if eq $length 0 }}
+<div class="alert alert-danger">Упс! Наверное Вы ввели фразу не на русском языке</div>
+{{ else if lt $length 6 }}
+<div class="alert alert-danger">Упс! Во-первых, фраза слишком мала, а во вторых, проверьте, включен ли у Вас JavaScript.</div>
+{{ else }}
+<div class="alert alert-success">Ура! Вы только что успешно сгенерировали пароль!</div>
+<div class="well"><strong>Ваш пароль:</strong> {{ .password }}</div>
+{{ end }}
+{{ end }}

@@ -1,0 +1,23 @@
+{{ define "magicbox" }}
+<div class="panel">
+  <div class="panel-body">
+    <form action="/magic" method="post">
+      <div class="row">
+        <div class="col-md-9">
+          <div class="form-group">
+            <label class="sr-only" for="phrase">Введите фразу или слово</label>
+            <input type="text" class="form-control input-lg" id="inGenerate" maxlength="140" placeholder="Введите, например: На горшке сидел король." name="phrase" value="{{ .original }}"></input>
+            <span class="help-block">Минимальная длина: 6 символов</span>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <button type="submit" class="btn btn-warning btn-lg btn-block" id="btnGenerate">
+            <strong>Сгенерировать!</strong>
+            <span class="badge" id="counter" style="color: #27ae60;">60</span>
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+{{ end }}
